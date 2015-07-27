@@ -20,5 +20,25 @@ class AddTableForUserDetail < ActiveRecord::Migration
       t.integer :years
       t.timestamps
     end
+
+    create_table :skill do |t|
+      t.integer :user_id
+      t.string :name
+      t.timestamps
+    end
+
+    create_table :myself do |t|
+      t.integer :user_id
+      t.text :context
+      t.timestamps
+    end
+
+    create_table :colle do |t|
+      t.integer :user_id
+      t.string :name
+      t.text :context
+      t.string :website
+      t.timestamps
+    end
   end
 end
