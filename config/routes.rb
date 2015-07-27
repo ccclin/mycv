@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'myself#index'
+  root 'myself#show'
   devise_for :users
   resources 'myself'
 end

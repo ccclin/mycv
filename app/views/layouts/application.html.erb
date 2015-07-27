@@ -7,7 +7,22 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<!--   <div class="bs-docs-header" id="content" tabindex="-1">
+    <div class="container">
+    <%#= render :partial => 'common/navbar' %>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3" role="complementary">
+        <%#= render :partial => 'common/sidebar' %>
+      </div>
+      <div class="col-md-9" role="main">
+        <%#= yield %>
+      </div>
+    </div>
+  </div> -->
+<%= render :partial => "common/navbar" %>
 <%= yield %>
 
 </body>
