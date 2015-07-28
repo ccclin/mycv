@@ -1,0 +1,81 @@
+<div class="col-md-12">
+  <h1 id='info'>個人資料</h1>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="well bs-component">
+        <% if current_user.info %>
+          姓　　名：<%= current_user.info.name %><br/>
+          英文姓名：<%= current_user.info.english_name %><br/>
+          電　　話：<%= current_user.info.phone %><br/>
+          地　　址：<%= current_user.info.address %><br/>
+        <% end %>
+        <%= link_to '新增或編輯個人資料', edit_admin_cvs_info_path(current_user.info) %>
+      </div>
+    </div>
+  </div>
+
+  <h1 id='edubg'>學歷</h1>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="well bs-component">
+        <% current_user.edubgs.each_with_index do |edubg, i| %>
+          <%="#{i + 1}. #{edubg.school_name}  #{edubg.major_name}"%>
+          <br/>
+        <% end %>
+        <%= link_to '新增學歷', new_admin_cvs_edubg_path %>
+      </div>
+    </div>
+  </div>
+
+  <h1 id='jobbg'>工作經歷</h1>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="well bs-component">
+        <% current_user.jobbgs.each_with_index do |jobbg, i| %>
+          <%= "#{i + 1}." %><br/>
+          公司名　：<%= jobbg.company_name %><br/>
+          工作內容：<%= jobbg.work_name %><br/>
+          工作年資：<%= jobbg.years %> 年<br/>
+        <% end %>
+        <%= link_to '新增工作經歷', new_admin_cvs_jobbg_path %>
+      </div>
+    </div>
+  </div>
+
+  <h1 id='skill'>技能</h1>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="well bs-component">
+        <% current_user.skills.each do |skill| %>
+          <%="#{skill.name}, "%>
+        <% end %>
+        <%= link_to '新增技能', new_admin_cvs_skill_path %>
+      </div>
+    </div>
+  </div>
+
+  <h1 id='myself'>簡單自傳</h1>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="well bs-component">
+        <% if current_user.myself %>
+          <%= current_user.myself.context %><br/>
+        <% end %>
+        <%= link_to '新增或編輯自傳', edit_admin_cvs_myself_path(current_user.myself) %>
+      </div>
+    </div>
+  </div>
+
+  <h1 id='colle'>作品集</h1>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="well bs-component">
+        <% current_user.colles.each do |colle| %>
+          <%="#{colle.name}  #{colle.context}  #{colle.website}"%>
+          <br/>
+        <% end %>
+        <%= link_to '新增作品', new_admin_cvs_colle_path %>
+      </div>
+    </div>
+  </div>
+</div>

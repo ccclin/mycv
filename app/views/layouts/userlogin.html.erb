@@ -9,7 +9,17 @@
 <body>
 
   <%= render :partial => 'common/navbar' %>
-  <%= yield %>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3" role="complementary">
+        <%= render :partial => 'common/sidebar' %>
+      </div>
+      <div class="col-md-9" role="main">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
 
 </body>
 </html>

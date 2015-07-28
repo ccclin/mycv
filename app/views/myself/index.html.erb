@@ -1,0 +1,11 @@
+<div class="col-md-12">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <h1>擁有履歷</h1>
+      <% @users.each do |user| %>
+      <h3><%= link_to user.info.name, myself_path(user) %></h3>
+      <% end %>
+    </div>
+  </div>
+</div>
+
