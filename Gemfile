@@ -50,3 +50,12 @@ gem 'devise'
 gem 'bootstrap-sass'
 
 gem 'simple_form'
+
+group :production, :test do
+  # Use puma as the app server
+  gem 'puma'
+
+  # Use postgres db
+  gem 'pg'
+  gem 'database_cleaner'
+end
