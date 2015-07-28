@@ -1,12 +1,15 @@
 class MyselfController < ApplicationController
   before_action :authenticate_user!
+
+  layout 'userlogin', only: :show
+
+  def index
+    @users = User.where(is_admin: true)
+  end
+
   def show
-    @user = User.find(user_id_getted)
+    @user = User.find(params[:id])
   end
 
-  private
-
-  def user_id_getted
-    params[:id] || 1
-  end
+  # private
 end
