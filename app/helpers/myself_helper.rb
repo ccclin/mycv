@@ -1,5 +1,5 @@
 module MyselfHelper
   def user_data_find(user)
-    user.info.name || user.email
+    user.try(:info).try(:name) || user.email
   end
 end
